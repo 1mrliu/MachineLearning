@@ -37,8 +37,8 @@ def build_q_table(n_states, actions):
 
 def choose_action(state, q_table):
     # 选择action
-    state_actions = q_table.iloc[state,:]
-    if(np.random.uniform() > EPSILON) or ((state_actions == 0).all()):
+    state_actions = q_table.iloc[state,:] # 选出station中的所有的action值
+    if(np.random.uniform() > EPSILON) or ((state_actions.all() == 0)):
         action_name = np.random.choice(ACTIONS)
     else:
         action_name = state_actions.idxmax()
@@ -101,6 +101,7 @@ def rl():
 
 if __name__ == "__main__":
     q_table = rl()
+    print('/r')
     print(q_table)
 
 
