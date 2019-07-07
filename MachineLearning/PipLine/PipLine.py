@@ -4,6 +4,7 @@ __date__ = '2019/7/7 5:07 PM'
 import mglearn
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.svm import SVC
 
@@ -33,6 +34,6 @@ print("Best cross-validation accuracy: {:.2f}".format(grid.best_score_))
 print("Best set score: {:.2f}".format(grid.score(X_test_scaled, y_test)))
 print("Best parameter: ", grid.best_params_)
 mglearn.plots.plot_improper_processing()
-# pipe = Pipeline([("scaler", MinMaxScaler()),("svm", SVC())])
-# pipe.fit(X_train, y_train)
-# print("Pipe Test score:{:.2f}".format(pipe.score(X_test, y_test)))
+pipe = Pipeline([("scaler", MinMaxScaler()),("svm", SVC())])
+pipe.fit(X_train, y_train)
+print("Pipe Test score:{:.2f}".format(pipe.score(X_test, y_test)))
