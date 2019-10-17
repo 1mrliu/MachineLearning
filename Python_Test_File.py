@@ -11,6 +11,7 @@ class Me(object):
     def __repr__(self):
         return ('__repr__():'+ self.name + ' '+ self.hobby)
 
+
 if __name__ == "__main__":
     me = Me('liudong','game')
     
@@ -33,3 +34,4 @@ if __name__ == "__main__":
     chars = ['a','b','c','d']
     for i , j in zip(nums,chars):
         print(i,j)
+        print()
